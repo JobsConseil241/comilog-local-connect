@@ -44,7 +44,7 @@
                     @else bg-navy/5 text-navy
                     @endif"><x-icon :name="$t['icon']" :size="18" /></span>
             </div>
-            <div class="font-display text-4xl font-bold text-navy mt-3 tabular-nums tracking-tighter2">{{ $t['value'] }}</div>
+            <div class="font-display text-3xl sm:text-4xl font-bold text-navy mt-3 tabular-nums tracking-tighter2">{{ $t['value'] }}</div>
             <div class="text-xs text-stone-500 mt-1">{{ $t['sub'] }}</div>
         </div>
     @endforeach

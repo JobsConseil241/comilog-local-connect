@@ -13,7 +13,7 @@
             <span class="text-[11px] uppercase tracking-widest2 text-stone-500 font-display font-semibold">PME actives</span>
             <span class="w-9 h-9 rounded-xl bg-forest/10 text-forest flex items-center justify-center"><x-icon name="users" :size="18" /></span>
         </div>
-        <div class="font-display text-4xl font-bold text-navy mt-3 tabular-nums tracking-tighter2">{{ $kpis['pmes_total'] }}</div>
+        <div class="font-display text-3xl sm:text-4xl font-bold text-navy mt-3 tabular-nums tracking-tighter2">{{ $kpis['pmes_total'] }}</div>
         <div class="text-xs text-forest mt-1.5 flex items-center gap-1"><x-icon name="trending-up" :size="12" /> +{{ $kpis['pmes_30d'] }} sur 30j</div>
     </div>
 
@@ -24,7 +24,7 @@
                 <span class="text-[11px] uppercase tracking-widest2 text-bronze-700 font-display font-semibold">À valider</span>
                 <span class="w-9 h-9 rounded-xl bg-bronze-100 text-bronze-700 flex items-center justify-center"><x-icon name="shield" :size="18" /></span>
             </div>
-            <div class="font-display text-4xl font-bold text-bronze-700 mt-3 tabular-nums tracking-tighter2">{{ $kpis['pmes_pending'] }}</div>
+            <div class="font-display text-3xl sm:text-4xl font-bold text-bronze-700 mt-3 tabular-nums tracking-tighter2">{{ $kpis['pmes_pending'] }}</div>
             <a href="{{ route('admin.pmes.index', ['status' => 'pending']) }}" class="text-xs text-bronze-700 hover:underline mt-1.5 inline-flex items-center gap-1 font-semibold">Voir <x-icon name="arrow-right" :size="12" /></a>
         </div>
     </div>
@@ -34,7 +34,7 @@
             <span class="text-[11px] uppercase tracking-widest2 text-stone-500 font-display font-semibold">Opportunités</span>
             <span class="w-9 h-9 rounded-xl bg-navy/5 text-navy flex items-center justify-center"><x-icon name="briefcase" :size="18" /></span>
         </div>
-        <div class="font-display text-4xl font-bold text-navy mt-3 tabular-nums tracking-tighter2">{{ $kpis['opportunities_total'] }}</div>
+        <div class="font-display text-3xl sm:text-4xl font-bold text-navy mt-3 tabular-nums tracking-tighter2">{{ $kpis['opportunities_total'] }}</div>
         <div class="text-xs text-stone-500 mt-1.5">+{{ $kpis['opportunities_30d'] }} sur 30j</div>
     </div>
 
@@ -43,7 +43,7 @@
             <span class="text-[11px] uppercase tracking-widest2 text-stone-500 font-display font-semibold">Formations</span>
             <span class="w-9 h-9 rounded-xl bg-forest/10 text-forest flex items-center justify-center"><x-icon name="graduation" :size="18" /></span>
         </div>
-        <div class="font-display text-4xl font-bold text-navy mt-3 tabular-nums tracking-tighter2">{{ $kpis['trainings_total'] }}</div>
+        <div class="font-display text-3xl sm:text-4xl font-bold text-navy mt-3 tabular-nums tracking-tighter2">{{ $kpis['trainings_total'] }}</div>
         <div class="text-xs text-stone-500 mt-1.5">À venir</div>
     </div>
 </div>

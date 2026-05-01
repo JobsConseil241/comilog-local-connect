@@ -8,12 +8,17 @@
     html {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
     }
     body {
         font-family: 'Inter', system-ui, sans-serif;
         background: #FAFAF9;
         color: #0C0A09;
+        overflow-x: hidden;
     }
+    /* Anchor links: avoid hiding behind sticky 72px header */
+    section[id], h2[id], h3[id] { scroll-margin-top: 88px; }
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Geist', 'SF Pro Display', system-ui, sans-serif;
         letter-spacing: -0.02em;
@@ -184,16 +189,29 @@
     }
 
     /* === TABLE === */
-    .table-wrapper { @apply card overflow-hidden p-0; }
+    .table-wrapper {
+        @apply card p-0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
     .table-wrapper table { @apply min-w-full; }
     .table-wrapper thead {
         @apply bg-stone-50 text-left text-[11px] uppercase tracking-widest2 text-stone-500;
         font-family: 'Geist', system-ui, sans-serif;
+        white-space: nowrap;
     }
-    .table-wrapper thead th { @apply px-6 py-3 font-semibold; }
+    .table-wrapper thead th { @apply px-4 sm:px-6 py-3 font-semibold; }
     .table-wrapper tbody { @apply divide-y divide-stone-100 text-sm; }
     .table-wrapper tbody tr:hover { @apply bg-stone-50/50; }
-    .table-wrapper td { @apply px-6 py-3.5; }
+    .table-wrapper td { @apply px-4 sm:px-6 py-3.5; }
+    .table-wrapper td.nowrap, .table-wrapper th.nowrap { white-space: nowrap; }
+
+    /* === BACK TO TOP === */
+    .btn-back-top {
+        @apply fixed z-40 right-4 sm:right-6 bottom-4 sm:bottom-6 inline-flex items-center justify-center w-12 h-12 rounded-full text-white shadow-glow-bronze transition-all duration-300 ease-expo-out;
+        background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+    }
+    .btn-back-top:hover { @apply -translate-y-1 shadow-glow-bronze-lg; }
 }
 
 @layer utilities {

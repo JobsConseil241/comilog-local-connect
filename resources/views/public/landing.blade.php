@@ -10,9 +10,9 @@
     <div class="absolute top-40 -left-40 w-[520px] h-[520px] bg-soft-glow-forest rounded-full animate-float-slow pointer-events-none"></div>
     <div class="absolute inset-0 bg-grid-stone bg-grid opacity-[0.03] pointer-events-none"></div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 lg:pt-32 lg:pb-40">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 sm:pt-24 sm:pb-28 lg:pt-32 lg:pb-40">
         <div class="max-w-4xl">
-            <div class="inline-flex items-center gap-2.5 mb-8 animate-fade-up text-xs font-semibold uppercase tracking-widest2 text-bronze-300 font-display">
+            <div class="inline-flex items-center gap-2.5 mb-6 sm:mb-8 animate-fade-up text-[11px] sm:text-xs font-semibold uppercase tracking-widest2 text-bronze-300 font-display">
                 <span class="relative flex h-2 w-2">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-bronze-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-bronze-500"></span>
@@ -20,43 +20,44 @@
                 COMILOG · Local Content Gabon
             </div>
 
-            <h1 class="font-display font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tighter2 leading-[1.05] animate-fade-up" style="animation-delay: 80ms;">
+            <h1 class="font-display font-bold tracking-tighter2 leading-[1.05] animate-fade-up"
+                style="font-size: clamp(2.25rem, 7vw, 4.5rem); animation-delay: 80ms;">
                 Connecter, faire grandir,<br>
                 <span class="text-gradient-hero">innover.</span>
             </h1>
 
-            <p class="mt-7 max-w-2xl text-lg lg:text-xl text-stone-300 leading-relaxed animate-fade-up" style="animation-delay: 160ms;">
+            <p class="mt-5 sm:mt-7 max-w-2xl text-base sm:text-lg lg:text-xl text-stone-300 leading-relaxed animate-fade-up" style="animation-delay: 160ms;">
                 Le hub des PME Local Content gabonaises.
                 Recevez les opportunités d'affaires, montez en compétences et collaborez
                 avec l'écosystème COMILOG en temps réel.
             </p>
 
-            <div class="mt-10 flex flex-wrap gap-3 animate-fade-up" style="animation-delay: 240ms;">
-                <a href="{{ route('inscription.create') }}" class="btn-primary h-12 px-6 text-base">
+            <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 animate-fade-up" style="animation-delay: 240ms;">
+                <a href="{{ route('inscription.create') }}" class="btn-primary h-12 px-6 text-base w-full sm:w-auto">
                     Rejoindre le réseau
                     <x-icon name="arrow-right" :size="18" />
                 </a>
-                <a href="#sme-showcase" class="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[10px] text-base font-semibold text-white border border-white/20 bg-white/5 backdrop-blur transition hover:bg-white/10 hover:border-white/30 font-display">
+                <a href="#sme-showcase" class="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[10px] text-base font-semibold text-white border border-white/20 bg-white/5 backdrop-blur transition hover:bg-white/10 hover:border-white/30 font-display w-full sm:w-auto">
                     Découvrir les PME
                 </a>
             </div>
 
-            <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10 animate-fade-up" style="animation-delay: 320ms;">
-                <div class="bg-navy-800/60 backdrop-blur p-5">
-                    <div class="font-display text-3xl font-bold text-white tabular-nums">{{ $stats['pmes'] }}</div>
-                    <div class="text-xs uppercase tracking-widest2 text-stone-400 mt-1">PME inscrites</div>
+            <div class="mt-10 sm:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10 animate-fade-up" style="animation-delay: 320ms;">
+                <div class="bg-navy-800/60 backdrop-blur p-4 sm:p-5">
+                    <div class="font-display text-2xl sm:text-3xl font-bold text-white tabular-nums">{{ $stats['pmes'] }}</div>
+                    <div class="text-[10px] sm:text-xs uppercase tracking-widest2 text-stone-400 mt-1">PME inscrites</div>
                 </div>
-                <div class="bg-navy-800/60 backdrop-blur p-5">
-                    <div class="font-display text-3xl font-bold text-white tabular-nums">{{ $stats['opportunities'] }}</div>
-                    <div class="text-xs uppercase tracking-widest2 text-stone-400 mt-1">Opportunités</div>
+                <div class="bg-navy-800/60 backdrop-blur p-4 sm:p-5">
+                    <div class="font-display text-2xl sm:text-3xl font-bold text-white tabular-nums">{{ $stats['opportunities'] }}</div>
+                    <div class="text-[10px] sm:text-xs uppercase tracking-widest2 text-stone-400 mt-1">Opportunités</div>
                 </div>
-                <div class="bg-navy-800/60 backdrop-blur p-5">
-                    <div class="font-display text-3xl font-bold text-white tabular-nums">{{ $stats['trainings'] }}</div>
-                    <div class="text-xs uppercase tracking-widest2 text-stone-400 mt-1">Formations</div>
+                <div class="bg-navy-800/60 backdrop-blur p-4 sm:p-5">
+                    <div class="font-display text-2xl sm:text-3xl font-bold text-white tabular-nums">{{ $stats['trainings'] }}</div>
+                    <div class="text-[10px] sm:text-xs uppercase tracking-widest2 text-stone-400 mt-1">Formations</div>
                 </div>
-                <div class="bg-navy-800/60 backdrop-blur p-5">
-                    <div class="font-display text-3xl font-bold text-white tabular-nums">{{ $stats['categories'] }}</div>
-                    <div class="text-xs uppercase tracking-widest2 text-stone-400 mt-1">Métiers</div>
+                <div class="bg-navy-800/60 backdrop-blur p-4 sm:p-5">
+                    <div class="font-display text-2xl sm:text-3xl font-bold text-white tabular-nums">{{ $stats['categories'] }}</div>
+                    <div class="text-[10px] sm:text-xs uppercase tracking-widest2 text-stone-400 mt-1">Métiers</div>
                 </div>
             </div>
         </div>
@@ -65,12 +66,12 @@
 </section>
 
 {{-- ════════════ ABOUT / PARTNERS ════════════ --}}
-<section id="about" class="py-24 lg:py-32 relative">
+<section id="about" class="py-16 sm:py-20 lg:py-32 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div>
                 <span class="eyebrow">Mission &amp; Vision</span>
-                <h2 class="mt-3 font-display font-bold text-3xl lg:text-5xl tracking-tighter2 text-navy">
+                <h2 class="mt-3 font-display font-bold tracking-tighter2 text-[clamp(1.875rem,4.5vw,3rem)] text-navy">
                     Réduire l'asymétrie d'information.<br>
                     <span class="text-forest">Renforcer le tissu local.</span>
                 </h2>
@@ -117,13 +118,13 @@
 </section>
 
 {{-- ════════════ FEATURES ════════════ --}}
-<section id="features" class="py-24 lg:py-32 relative bg-stone-100/60">
+<section id="features" class="py-16 sm:py-20 lg:py-32 relative bg-stone-100/60">
     <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-bronze-400/40 to-transparent"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <span class="eyebrow">Six modules · une plateforme</span>
-            <h2 class="mt-3 font-display font-bold text-3xl lg:text-5xl tracking-tighter2 text-navy">
+            <h2 class="mt-3 font-display font-bold tracking-tighter2 text-[clamp(1.875rem,4.5vw,3rem)] text-navy">
                 Tout ce dont votre PME a besoin pour <span class="text-gradient-bronze">grandir</span>.
             </h2>
             <p class="mt-4 text-stone-600 text-lg">Conçu pour la réalité opérationnelle des PME du Haut-Ogooué et du Gabon.</p>
@@ -164,12 +165,12 @@
 </section>
 
 {{-- ════════════ SME SHOWCASE ════════════ --}}
-<section id="sme-showcase" class="py-24 lg:py-32 relative overflow-hidden">
+<section id="sme-showcase" class="py-16 sm:py-20 lg:py-32 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-end justify-between mb-12 flex-wrap gap-4">
             <div>
                 <span class="eyebrow">Communauté</span>
-                <h2 class="mt-3 font-display font-bold text-3xl lg:text-5xl tracking-tighter2 text-navy">PME à l'honneur</h2>
+                <h2 class="mt-3 font-display font-bold tracking-tighter2 text-[clamp(1.875rem,4.5vw,3rem)] text-navy">PME à l'honneur</h2>
                 <p class="mt-3 text-stone-600 text-lg max-w-xl">Quelques-unes des PME locales qui font vivre l'écosystème.</p>
             </div>
             <a href="{{ route('inscription.create') }}" class="btn-secondary">
@@ -203,12 +204,12 @@
 
 {{-- ════════════ LATEST OPPORTUNITIES ════════════ --}}
 @if($latestOpportunities->isNotEmpty())
-<section id="opportunities-preview" class="py-24 lg:py-32 bg-stone-100/60 relative">
+<section id="opportunities-preview" class="py-16 sm:py-20 lg:py-32 bg-stone-100/60 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-end justify-between mb-12 flex-wrap gap-4">
             <div>
                 <span class="eyebrow">Aperçu en direct</span>
-                <h2 class="mt-3 font-display font-bold text-3xl lg:text-5xl tracking-tighter2 text-navy">Dernières opportunités</h2>
+                <h2 class="mt-3 font-display font-bold tracking-tighter2 text-[clamp(1.875rem,4.5vw,3rem)] text-navy">Dernières opportunités</h2>
             </div>
             <a href="{{ route('login') }}" class="btn-ghost text-sm">
                 Se connecter pour tout voir
@@ -239,11 +240,11 @@
 @endif
 
 {{-- ════════════ TESTIMONIALS ════════════ --}}
-<section class="py-24 lg:py-32 relative">
+<section class="py-16 sm:py-20 lg:py-32 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-14">
             <span class="eyebrow">Témoignages</span>
-            <h2 class="mt-3 font-display font-bold text-3xl lg:text-5xl tracking-tighter2 text-navy">
+            <h2 class="mt-3 font-display font-bold tracking-tighter2 text-[clamp(1.875rem,4.5vw,3rem)] text-navy">
                 Ils font grandir <span class="text-forest">le local content</span>.
             </h2>
         </div>
@@ -271,11 +272,11 @@
 </section>
 
 {{-- ════════════ HOW IT WORKS ════════════ --}}
-<section id="resources" class="py-24 lg:py-32 bg-stone-100/60 relative">
+<section id="resources" class="py-16 sm:py-20 lg:py-32 bg-stone-100/60 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <span class="eyebrow">Comment ça marche</span>
-            <h2 class="mt-3 font-display font-bold text-3xl lg:text-5xl tracking-tighter2 text-navy">Trois étapes pour démarrer</h2>
+            <h2 class="mt-3 font-display font-bold tracking-tighter2 text-[clamp(1.875rem,4.5vw,3rem)] text-navy">Trois étapes pour démarrer</h2>
         </div>
 
         <div class="grid md:grid-cols-3 gap-5 relative">
@@ -302,7 +303,7 @@
 </section>
 
 {{-- ════════════ FINAL CTA ════════════ --}}
-<section class="py-24 lg:py-32 relative">
+<section class="py-16 sm:py-20 lg:py-32 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative overflow-hidden rounded-3xl bg-hero-navy-forest p-10 lg:p-20 text-center noise-overlay">
             <div class="absolute -top-20 -right-20 w-96 h-96 bg-soft-glow-bronze rounded-full animate-glow-pulse pointer-events-none"></div>
@@ -310,7 +311,7 @@
 
             <div class="relative z-10">
                 <span class="badge-glass">Prêt à démarrer ?</span>
-                <h2 class="mt-6 font-display font-bold text-4xl lg:text-6xl tracking-tighter2 text-white leading-[1.1]">
+                <h2 class="mt-6 font-display font-bold tracking-tighter2 text-white leading-[1.1]" style="font-size: clamp(2rem, 6vw, 3.75rem);">
                     Faites grandir votre PME<br>
                     <span class="text-gradient-hero">au cœur du Gabon.</span>
                 </h2>
