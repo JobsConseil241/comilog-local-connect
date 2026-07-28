@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-01T00:00:00.000Z",
+  "title": "Design System: COMILOG Local Connect",
+  "extensions": {
+    "colorMeta": {
+      "moanda-midnight": {
+        "role": "primary",
+        "displayName": "Moanda Midnight",
+        "canonical": "#0A2240",
+        "tonalRamp": ["#030E20", "#061833", "#0A2240", "#1B3358", "#2C4978", "#4E6B9F", "#7E94BD", "#AEBDD9"]
+      },
+      "midnight-deep": {
+        "role": "primary",
+        "displayName": "Midnight Deep",
+        "canonical": "#061833",
+        "tonalRamp": ["#030E20", "#061833", "#0A2240", "#1B3358", "#2C4978", "#4E6B9F", "#7E94BD", "#AEBDD9"]
+      },
+      "midnight-mid": {
+        "role": "primary",
+        "displayName": "Midnight Mid",
+        "canonical": "#1B3358",
+        "tonalRamp": ["#030E20", "#061833", "#0A2240", "#1B3358", "#2C4978", "#4E6B9F", "#7E94BD", "#AEBDD9"]
+      },
+      "compliance-forest": {
+        "role": "secondary",
+        "displayName": "Compliance Forest",
+        "canonical": "#0F5132",
+        "tonalRamp": ["#062817", "#0A3E26", "#0F5132", "#15803D", "#10B981", "#34D399", "#6EE7B7", "#A7F3D0"]
+      },
+      "compliance-forest-mid": {
+        "role": "secondary",
+        "displayName": "Compliance Forest Mid",
+        "canonical": "#15803D",
+        "tonalRamp": ["#062817", "#0A3E26", "#0F5132", "#15803D", "#10B981", "#34D399", "#6EE7B7", "#A7F3D0"]
+      },
+      "assay-bronze": {
+        "role": "tertiary",
+        "displayName": "Assay Bronze",
+        "canonical": "#B45309",
+        "tonalRamp": ["#78350F", "#92400E", "#B45309", "#D97706", "#F59E0B", "#FBBF24", "#FCD34D", "#FEF3C7"]
+      },
+      "assay-bronze-cast": {
+        "role": "tertiary",
+        "displayName": "Assay Bronze Cast",
+        "canonical": "#D97706",
+        "tonalRamp": ["#78350F", "#92400E", "#B45309", "#D97706", "#F59E0B", "#FBBF24", "#FCD34D", "#FEF3C7"]
+      },
+      "assay-bronze-lit": {
+        "role": "tertiary",
+        "displayName": "Assay Bronze Lit",
+        "canonical": "#F59E0B",
+        "tonalRamp": ["#78350F", "#92400E", "#B45309", "#D97706", "#F59E0B", "#FBBF24", "#FCD34D", "#FEF3C7"]
+      },
+      "cool-paper": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "#FAFAF9",
+        "tonalRamp": ["#0C0A09", "#1C1917", "#292524", "#44403C", "#78716C", "#A8A29E", "#D6D3D1", "#FAFAF9"]
+      },
+      "paper-rule": {
+        "role": "neutral",
+        "displayName": "Paper Rule",
+        "canonical": "#E7E5E4",
+        "tonalRamp": ["#0C0A09", "#1C1917", "#292524", "#44403C", "#78716C", "#A8A29E", "#D6D3D1", "#E7E5E4"]
+      },
+      "ledger-graphite": {
+        "role": "neutral",
+        "displayName": "Ledger Graphite",
+        "canonical": "#78716C",
+        "tonalRamp": ["#0C0A09", "#1C1917", "#292524", "#44403C", "#78716C", "#A8A29E", "#D6D3D1", "#E7E5E4"]
+      },
+      "ledger-ink": {
+        "role": "neutral",
+        "displayName": "Ledger Ink",
+        "canonical": "#0C0A09",
+        "tonalRamp": ["#0C0A09", "#1C1917", "#292524", "#44403C", "#78716C", "#A8A29E", "#D6D3D1", "#E7E5E4"]
+      },
+      "success": {
+        "role": "semantic",
+        "displayName": "Success",
+        "canonical": "#15803D",
+        "tonalRamp": ["#062817", "#0A3E26", "#0F5132", "#15803D", "#10B981", "#34D399", "#6EE7B7", "#A7F3D0"]
+      },
+      "danger": {
+        "role": "semantic",
+        "displayName": "Danger",
+        "canonical": "#B91C1C",
+        "tonalRamp": ["#7F1D1D", "#991B1B", "#B91C1C", "#DC2626", "#EF4444", "#F87171", "#FCA5A5", "#FECACA"]
+      },
+      "warning": {
+        "role": "semantic",
+        "displayName": "Warning",
+        "canonical": "#CA8A04",
+        "tonalRamp": ["#713F12", "#854D0E", "#A16207", "#CA8A04", "#EAB308", "#FACC15", "#FDE047", "#FEF08A"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Titres marketing landing et titres hero, fluide via clamp(1.875rem, 4.5vw, 3rem)." },
+      "headline": { "displayName": "Headline", "purpose": "H1 des vues portail, titre de carte-vedette, titre d'article détail." },
+      "title": { "displayName": "Title", "purpose": "Titres de cartes, titres d'items de listes, texte de boutons." },
+      "body": { "displayName": "Body", "purpose": "Corps de texte, descriptions, textarea. Inter 15 px pour lisibilité longue durée." },
+      "label": { "displayName": "Label", "purpose": "Eyebrows uppercase, en-têtes de tables, meta info dans cartes. Geist letter-spacing 0.2em." }
+    },
+    "shadows": [
+      { "name": "xs",             "value": "0 1px 2px rgba(12,10,9,0.04)", "purpose": "Élévation minimale, ring de focus discret." },
+      { "name": "soft",           "value": "0 1px 2px rgba(12,10,9,0.04), 0 1px 3px rgba(12,10,9,0.06)", "purpose": "Ligne de base des cartes au repos." },
+      { "name": "elevated",       "value": "0 4px 8px -2px rgba(12,10,9,0.08), 0 2px 4px -1px rgba(12,10,9,0.04)", "purpose": "Cartes-glass et dropdowns légers." },
+      { "name": "lifted",         "value": "0 12px 24px -6px rgba(12,10,9,0.10), 0 4px 8px -2px rgba(12,10,9,0.06)", "purpose": "Hover des cartes normales, boutons dark hover, modals petits." },
+      { "name": "floating",       "value": "0 24px 48px -12px rgba(12,10,9,0.18), 0 8px 16px -4px rgba(12,10,9,0.08)", "purpose": "Drawers off-canvas et popovers importants — plafond réservé aux surfaces qui interrompent le flux." },
+      { "name": "glow-bronze",    "value": "0 0 0 1px rgba(180,83,9,0.10), 0 8px 24px -8px rgba(180,83,9,0.45)", "purpose": "Repos CTA primaire et back-to-top — halo qui signale l'action." },
+      { "name": "glow-bronze-lg", "value": "0 0 0 1px rgba(180,83,9,0.20), 0 16px 40px -8px rgba(180,83,9,0.55), 0 0 80px -20px rgba(245,158,11,0.40)", "purpose": "Hover CTA primaire — amplification." },
+      { "name": "glow-navy",      "value": "0 0 60px -12px rgba(27,51,88,0.35)", "purpose": "Icônes-conteneurs navy sur cartes features." },
+      { "name": "glow-forest",    "value": "0 0 50px -10px rgba(21,128,61,0.30)", "purpose": "Icônes-conteneurs forest et bouton de validation PME." },
+      { "name": "inner-glow",     "value": "inset 0 1px 0 0 rgba(255,255,255,0.10)", "purpose": "Highlight subtil top des liens actifs de sidebar dark." }
+    ],
+    "motion": [
+      { "name": "expo-out",     "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Easing par défaut pour toutes transitions et animations (btn hover, card lift, drawer slide)." },
+      { "name": "duration-fast","value": "150ms", "purpose": "Micro-interactions couleur (btn-ghost, hover badges)." },
+      { "name": "duration-base","value": "200ms", "purpose": "Boutons et interactions primaires." },
+      { "name": "duration-slow","value": "300ms", "purpose": "Cartes qui lèvent, drawers, transitions de state visibles." },
+      { "name": "fade-up",      "value": "600ms cubic-bezier(0.16, 1, 0.3, 1) both", "purpose": "Entrée staggerée des blocs hero (badge, titre, sous-titre, CTA, stats)." },
+      { "name": "glow-pulse",   "value": "6s ease-in-out infinite", "purpose": "Respiration lente des soft-glow radiaux du hero." },
+      { "name": "float-slow",   "value": "12s ease-in-out infinite", "purpose": "Dérive lente des atmosphères de fond." }
+    ],
+    "breakpoints": [
+      { "name": "sm",  "value": "640px",  "purpose": "Tablet portrait, CTA hero passe en side-by-side, KPI 4-col." },
+      { "name": "md",  "value": "768px",  "purpose": "Disparition du burger public au profit des nav-links inline." },
+      { "name": "lg",  "value": "1024px", "purpose": "Sidebar portail devient fixe, grid features 3-col." },
+      { "name": "xl",  "value": "1280px", "purpose": "Max-width landing container atteinte." },
+      { "name": "2xl", "value": "1536px", "purpose": "Portail max-width 1600 px atteinte." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA principal, gradient bronze avec halo. Utilisé pour l'action-clé de chaque surface.",
+      "html": "<button class=\"ds-btn-primary\">Rejoindre le réseau <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 20px; border-radius: 10px; border: none; background: linear-gradient(135deg, #D97706 0%, #B45309 100%); color: #ffffff; font-family: 'Geist', 'SF Pro Display', system-ui, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: -0.015em; cursor: pointer; box-shadow: 0 0 0 1px rgba(180,83,9,0.10), 0 8px 24px -8px rgba(180,83,9,0.45); transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(180,83,9,0.20), 0 16px 40px -8px rgba(180,83,9,0.55), 0 0 80px -20px rgba(245,158,11,0.40); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: 2px solid #B45309; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button (Glass)",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Action secondaire en surface claire. Verre dépoli 70 % avec bordure navy tenue.",
+      "html": "<button class=\"ds-btn-secondary\">En savoir plus</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 20px; border-radius: 10px; background: rgba(255,255,255,0.7); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(10,34,64,0.15); color: #0A2240; font-family: 'Geist', 'SF Pro Display', system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 200ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-secondary:hover { background: #ffffff; border-color: rgba(10,34,64,0.25); } .ds-btn-secondary:focus-visible { outline: 2px solid #B45309; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Action tertiaire, texte seul. Utilisé pour les liens de nav et les actions inline discrètes.",
+      "html": "<button class=\"ds-btn-ghost\">Voir tout <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border-radius: 8px; background: transparent; border: none; color: #78716C; font-family: 'Geist', 'SF Pro Display', system-ui, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 150ms cubic-bezier(0.16, 1, 0.3, 1), color 150ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-ghost:hover { background: rgba(10,34,64,0.05); color: #0A2240; } .ds-btn-ghost:focus-visible { outline: 2px solid #B45309; outline-offset: 2px; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Carte standard, blanche sur cool-paper, ligne de base soft, se soulève au hover.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-eyebrow\">MISSION</div><h3 class=\"ds-card-title\">Réduire l'asymétrie</h3><p class=\"ds-card-body\">Structurer les échanges entre COMILOG et les PME Local Content par métier.</p></article>",
+      "css": ".ds-card { display: block; background: #ffffff; border: 1px solid #E7E5E4; border-radius: 16px; padding: 24px; box-shadow: 0 1px 2px rgba(12,10,9,0.04), 0 1px 3px rgba(12,10,9,0.06); transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-card:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -6px rgba(12,10,9,0.10), 0 4px 8px -2px rgba(12,10,9,0.06); } .ds-card-eyebrow { font-family: 'Geist', system-ui, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #B45309; margin: 0 0 12px 0; } .ds-card-title { font-family: 'Geist', system-ui, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.015em; color: #0A2240; margin: 0 0 8px 0; line-height: 1.3; } .ds-card-body { font-family: 'Inter', system-ui, sans-serif; font-size: 15px; line-height: 1.55; color: #57534E; margin: 0; }"
+    },
+    {
+      "name": "Card Feature (signature)",
+      "kind": "card",
+      "refersTo": "card-feature",
+      "description": "Variante distinctive avec pseudo-halo bronze en coin haut-droit. Le sceau discret.",
+      "html": "<article class=\"ds-card-feature\"><div class=\"ds-card-feature-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16\"/><rect width=\"20\" height=\"14\" x=\"2\" y=\"6\" rx=\"2\"/></svg></div><h3 class=\"ds-card-feature-title\">Opportunités d'affaires</h3><p class=\"ds-card-feature-body\">Appels d'offres, consultations, demandes de devis ciblés par votre métier.</p></article>",
+      "css": ".ds-card-feature { position: relative; overflow: hidden; background: #ffffff; border: 1px solid #E7E5E4; border-radius: 16px; padding: 32px; box-shadow: 0 1px 2px rgba(12,10,9,0.04), 0 1px 3px rgba(12,10,9,0.06); transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-card-feature::before { content: \"\"; position: absolute; inset: 0; background: radial-gradient(closest-side at top right, rgba(245,158,11,0.08), transparent 70%); pointer-events: none; } .ds-card-feature:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -6px rgba(12,10,9,0.10), 0 4px 8px -2px rgba(12,10,9,0.06); } .ds-card-feature-icon { position: relative; width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #D97706 0%, #B45309 100%); color: #ffffff; display: inline-flex; align-items: center; justify-content: center; margin: 0 0 20px 0; box-shadow: 0 0 0 1px rgba(180,83,9,0.10), 0 8px 24px -8px rgba(180,83,9,0.45); } .ds-card-feature-title { position: relative; font-family: 'Geist', system-ui, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.015em; color: #0A2240; margin: 0 0 8px 0; } .ds-card-feature-body { position: relative; font-family: 'Inter', system-ui, sans-serif; font-size: 15px; line-height: 1.55; color: #57534E; margin: 0; }"
+    },
+    {
+      "name": "Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Champ texte standard, focus bronze avec ring de 4 px.",
+      "html": "<label class=\"ds-input-label\">Email de contact<input class=\"ds-input\" type=\"email\" placeholder=\"contact@entreprise.local\" /></label>",
+      "css": ".ds-input-label { display: block; font-family: 'Geist', system-ui, sans-serif; font-size: 13px; font-weight: 500; color: #0A2240; margin: 0 0 6px 0; } .ds-input { display: block; width: 100%; height: 44px; padding: 0 14px; background: #ffffff; border: 1px solid #E7E5E4; border-radius: 10px; font-family: 'Inter', system-ui, sans-serif; font-size: 15px; color: #0C0A09; transition: border-color 150ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 150ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-input::placeholder { color: #A8A29E; } .ds-input:focus { outline: none; border-color: #B45309; box-shadow: 0 0 0 4px rgba(180,83,9,0.12); }"
+    },
+    {
+      "name": "Badge Bronze (assay mark)",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Pill statut en attente de validation ou deadline. Le marqueur bronze — sa rareté est le point.",
+      "html": "<span class=\"ds-badge-bronze\"><span class=\"ds-badge-dot\"></span> À valider</span>",
+      "css": ".ds-badge-bronze { display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 10px; border-radius: 9999px; background: rgba(180,83,9,0.10); color: #B45309; font-family: 'Geist', system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: -0.005em; } .ds-badge-dot { display: inline-block; width: 6px; height: 6px; border-radius: 9999px; background: #D97706; }"
+    },
+    {
+      "name": "Eyebrow Label",
+      "kind": "custom",
+      "refersTo": "eyebrow",
+      "description": "Micro-label bronze uppercase qui précède chaque titre de section marketing.",
+      "html": "<span class=\"ds-eyebrow\">Mission &amp; Vision</span>",
+      "css": ".ds-eyebrow { display: inline-block; font-family: 'Geist', system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #B45309; margin: 0; }"
+    },
+    {
+      "name": "Back-to-top",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "Bouton flottant rond bronze qui remonte au top. Apparaît après 480 px de scroll.",
+      "html": "<button class=\"ds-back-top\" aria-label=\"Retour en haut\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m5 12 7-7 7 7\"/><path d=\"M12 19V5\"/></svg></button>",
+      "css": ".ds-back-top { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 9999px; border: none; background: linear-gradient(135deg, #D97706 0%, #B45309 100%); color: #ffffff; cursor: pointer; box-shadow: 0 0 0 1px rgba(180,83,9,0.10), 0 8px 24px -8px rgba(180,83,9,0.45); transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-back-top:hover { transform: translateY(-4px); box-shadow: 0 0 0 1px rgba(180,83,9,0.20), 0 16px 40px -8px rgba(180,83,9,0.55), 0 0 80px -20px rgba(245,158,11,0.40); } .ds-back-top:focus-visible { outline: 2px solid #B45309; outline-offset: 2px; }"
+    },
+    {
+      "name": "Sidebar Nav Link (active)",
+      "kind": "nav",
+      "refersTo": "custom",
+      "description": "Lien de sidebar dark en état actif : barre bronze 2 px à gauche + fond translucide.",
+      "html": "<nav class=\"ds-sidebar\"><a class=\"ds-sidebar-link ds-active\" href=\"#\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"7\" height=\"7\" x=\"3\" y=\"3\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"14\" y=\"3\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"14\" y=\"14\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"3\" y=\"14\" rx=\"1\"/></svg><span>Tableau de bord</span></a><a class=\"ds-sidebar-link\" href=\"#\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16\"/><rect width=\"20\" height=\"14\" x=\"2\" y=\"6\" rx=\"2\"/></svg><span>Opportunités</span></a></nav>",
+      "css": ".ds-sidebar { display: flex; flex-direction: column; gap: 2px; width: 256px; padding: 12px; background: linear-gradient(180deg, #061833 0%, #0A2240 100%); border-right: 1px solid rgba(255,255,255,0.06); color: #D6D3D1; } .ds-sidebar-link { position: relative; display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-radius: 8px; text-decoration: none; color: #A8A29E; font-family: 'Geist', system-ui, sans-serif; font-size: 14px; font-weight: 500; transition: background 150ms cubic-bezier(0.16, 1, 0.3, 1), color 150ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-sidebar-link:hover { background: rgba(255,255,255,0.04); color: #ffffff; } .ds-sidebar-link.ds-active { background: rgba(255,255,255,0.08); color: #ffffff; box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.10); } .ds-sidebar-link.ds-active::before { content: \"\"; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px; background: #F59E0B; border-radius: 2px; } .ds-sidebar-link svg { color: #78716C; flex-shrink: 0; } .ds-sidebar-link.ds-active svg { color: #FBBF24; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Manganese Ledger",
+    "overview": "Le système visuel se comporte comme un registre institutionnel du minerai : navy profond pour la matière brute (surfaces sombres, headers, sidebar), forest pour la conformité et le tissu vivant (badges succès, gradient hero, bordures d'accents secondaires), et bronze rare pour la marque de garantie — l'estampille officielle qu'on ne pose que là où une décision engage un cycle. Le papier cool-paper est la feuille du registre : mat, tactile, jamais éclatant. Une texture noise à 4 % en overlay rappelle le grain d'un document imprimé sans jamais devenir décorative.\n\nCe n'est ni un dashboard SaaS ni un site corporate consulting. L'implémentation refuse deux dérives que la catégorie encourage : le glassmorphisme plastique du dashboard-of-the-week (des cartes flottantes bleu-clair sans intention), et le corporate neutre bleu-gris-Helvetica qui pourrait servir n'importe quel groupe industriel. Ici tout signale COMILOG spécifiquement : la ville de Moanda dans le nom de la couleur signature, le bronze qui évoque le manganèse raffiné, la forêt équatoriale sur les états de conformité, la sobriété francophone institutionnelle dans la copy.\n\nLa densité vise le poste de travail admin (desktop, longues sessions) sans jamais rendre la surface PME (mobile, terrain, connexion variable) illisible. Le typographie est double : Geist en display et étiquettes pour la précision géométrique moderne, Inter en corps pour la neutralité de lecture. Les mouvements sont lents et amortis (cubic-bezier(0.16, 1, 0.3, 1)), jamais nerveux.",
+    "keyCharacteristics": [
+      "Palette navy dominante, forest secondaire, bronze rare et décisif",
+      "Typographie Geist + Inter en couple précision/lecture",
+      "Élévation par ombres douces multi-couches + glows colorés uniquement aux moments décisifs",
+      "Textures fines (noise 4 %, grid 32 px) pour l'ancrage matériel — jamais décoratives",
+      "Glass surfaces subtiles (nav sticky à 75 % opacité, sidebar interne dark à 55 %)",
+      "Coins arrondis mesurés : 10 px pour les contrôles, 16 px pour les cartes, 24 px pour les blocs héroïques",
+      "Voice institutionnelle française — zéro emoji dans les surfaces produit"
+    ],
+    "rules": [
+      { "name": "The Assay Mark Rule", "body": "Le bronze est la marque de garantie — il n'apparaît qu'à côté de ce qui engage un cycle d'action : CTA primaire, deadline critique, état « en attente de validation », focus d'un input, chevron de call-to-action au hover. Jamais décoratif. Sa rareté est le point : quand le bronze parle, on sait qu'il y a une décision à prendre.", "section": "colors" },
+      { "name": "The Warm Paper Rule", "body": "Le fond cool-paper (#FAFAF9) est un beige chaud, pas un blanc pur. Ne jamais utiliser #FFFFFF en fond de body ou de section large. Le blanc pur reste réservé aux surfaces qui doivent trancher : cartes, inputs, badges.", "section": "colors" },
+      { "name": "The Two-Voice Rule", "body": "Geist pour la structure, Inter pour la lecture. Ne jamais mélanger : un paragraphe en Geist devient froid, un heading en Inter perd sa précision.", "section": "typography" },
+      { "name": "The Fluid Display Rule", "body": "Tout heading de niveau display (hero, section marketing) utilise clamp() — jamais une taille fixe. Le pattern canonique est clamp(1.875rem, 4.5vw, 3rem).", "section": "typography" },
+      { "name": "The Mobile Is Not Degraded Rule", "body": "Les surfaces PME doivent être aussi lisibles à 375 px qu'à 1440 px. Jamais de scroll horizontal, jamais de contenu caché derrière une action introuvable, taille de police minimale 15 px sur les paragraphes.", "section": "layout" },
+      { "name": "The Glow-Costs-Attention Rule", "body": "Un glow coloré signifie « regarde ici ». Il ne peut pas y avoir plus d'un glow-bronze visible dans un même viewport.", "section": "elevation" },
+      { "name": "The Ambient-First Rule", "body": "L'élévation normale utilise les ombres neutres (soft, lifted). Un glow coloré n'est jamais ambient — il annonce toujours une action ou un état décisif.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do utiliser cool-paper (#FAFAF9) comme fond de body et de section large. Le blanc pur reste aux cartes.",
+      "Do poser le bronze uniquement sur les actions décisives (CTA primaire, deadline, statut « en attente », focus input, back-to-top).",
+      "Do utiliser clamp() pour tout heading display — le pattern canonique est clamp(1.875rem, 4.5vw, 3rem).",
+      "Do appliquer noise-overlay à 4 % sur les surfaces sombres (footer navy, hero, cartes-glass-dark) pour l'ancrage matériel.",
+      "Do faire lever les cartes de -translate-y-0.5 (card) à -translate-y-1 (card-feature) au hover avec transition duration-300 ease-expo-out.",
+      "Do utiliser badge-glass (bronze translucide) pour les eyebrows/labels sur les surfaces sombres, jamais un badge-navy (illisible).",
+      "Do garder nav-glass sticky à 72 px sur toutes les pages et compenser via scroll-margin-top: 88px sur les sections ancrées.",
+      "Do appliquer -webkit-backdrop-filter en pair de backdrop-filter sur Safari."
+    ],
+    "donts": [
+      "Don't mélanger Geist et Inter dans un même bloc. Geist = structure/labels, Inter = lecture.",
+      "Don't utiliser un text-gradient sur autre chose qu'un mot signature d'un heading hero. Jamais sur du corps de texte, jamais sur un metric KPI.",
+      "Don't poser un glow-bronze sur deux éléments visibles simultanément. Un halo bronze veut dire « ceci est l'action » — deux halos annulent la règle.",
+      "Don't utiliser d'emoji dans les surfaces produit (landing, portail PME, portail admin).",
+      "Don't ajouter de nouvelle couleur au système sans passer par une des trois familles (navy, forest, bronze) ou par une couleur sémantique.",
+      "Don't cacher la navigation sur mobile sans la remplacer par un burger accessible.",
+      "Don't utiliser d'ombres portées dramatiques (box-shadow > floating) pour styliser un contenu au repos.",
+      "Don't styliser un contrôle avec rounded-3xl (24 px) — ce rayon est réservé aux blocs héroïques. Les boutons/inputs restent à 10 px, les cartes à 16 px."
+    ]
+  }
+}
