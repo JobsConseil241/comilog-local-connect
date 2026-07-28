@@ -57,6 +57,20 @@ class Opportunity extends Model
         return $this->belongsTo(User::class, 'created_by');
     }
 
+    public function interests(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(OpportunityInterest::class);
+    }
+
+    public function isInterestedBy(?Pme $pme): bool
+    {
+        if (! $pme) {
+            return false;
+        }
+
+        return $this->interests()->where('pme_id', $pme->id)->exists();
+    }
+
     public function scopePublished(Builder $query): Builder
     {
         return $query->where('status', self::STATUS_PUBLISHED)

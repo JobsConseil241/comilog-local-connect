@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BusinessCategory;
 use App\Models\Opportunity;
 use App\Models\Pme;
+use App\Notifications\NewOpportunityDigest;
 use App\Notifications\NewOpportunityPublished;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -123,31 +124,43 @@ class OpportunityController extends Controller
     }
 
     /**
-     * Dispatch a NewOpportunityPublished notification to every user of every
-     * active PME sharing at least one business category with this opportunity.
-     * The notification implements ShouldQueue so mail sending happens in the background.
+     * When an opportunity goes live, every active PME receives exactly one email:
+     *   - NewOpportunityPublished (detailed) if at least one of their business
+     *     categories matches the opportunity;
+     *   - NewOpportunityDigest (broadcast) otherwise, as institutional visibility.
+     *
+     * Both notifications implement ShouldQueue.
      */
     private function notifyTargetedPmes(Opportunity $opportunity): void
     {
         try {
             $categoryIds = $opportunity->categories()->pluck('business_categories.id')->all();
-            if (empty($categoryIds)) {
-                return;
-            }
 
-            $targetedPmes = Pme::query()
+            $matchingPmeIds = empty($categoryIds)
+                ? []
+                : Pme::query()
+                    ->where('status', Pme::STATUS_ACTIVE)
+                    ->whereHas('categories', fn ($q) => $q->whereIn('business_categories.id', $categoryIds))
+                    ->pluck('id')
+                    ->all();
+
+            $activePmes = Pme::query()
                 ->where('status', Pme::STATUS_ACTIVE)
-                ->whereHas('categories', fn ($q) => $q->whereIn('business_categories.id', $categoryIds))
                 ->with('users')
                 ->get();
 
-            foreach ($targetedPmes as $pme) {
+            foreach ($activePmes as $pme) {
+                $matches = in_array($pme->id, $matchingPmeIds, true);
                 foreach ($pme->users as $user) {
-                    $user->notify(new NewOpportunityPublished($opportunity, $pme));
+                    if ($matches) {
+                        $user->notify(new NewOpportunityPublished($opportunity, $pme));
+                    } else {
+                        $user->notify(new NewOpportunityDigest($opportunity, $pme));
+                    }
                 }
             }
         } catch (\Throwable $e) {
-            Log::warning('NewOpportunityPublished dispatch failed: ' . $e->getMessage());
+            Log::warning('Opportunity dispatch failed: ' . $e->getMessage());
         }
     }
 }

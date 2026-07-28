@@ -49,14 +49,17 @@ Le mécanisme différenciateur qu'aucun portail concurrent ne peut copier honnê
 - Catalogue de catégories métier éditable par admin, couleur personnalisable.
 - CRUD opportunités avec ciblage multi-métiers, types : appel d'offres / consultation / devis / manifestation d'intérêt, référence auto `COM-YYYY-NNNN`.
 - CRUD formations et actualités SMI.
-- Filtrage automatique côté PME : une opportunité n'est visible que si au moins une de ses catégories intersecte celles de la PME.
-- Notifications email transactionnelles via Resend : accusé d'inscription, validation, rejet (avec motif), alerte nouvelle opportunité (queue Laravel `ShouldQueue`).
+- Filtrage automatique côté PME : les *listings* d'opportunités (`/pme/opportunites`) ne montrent que les opportunités qui recoupent au moins un métier de la PME. Les liens directs (mail digest, partage) restent accessibles à toute PME active.
+- Notifications email transactionnelles via Resend (queue Laravel `ShouldQueue`) :
+  - Accusé d'inscription, validation, rejet (avec motif).
+  - **Nouvelle opportunité — dual dispatch** : à la publication d'une opportunité, chaque PME active reçoit *exactement un* mail — le mail détaillé (`NewOpportunityPublished`) si un de ses métiers correspond, sinon le mail digest court (`NewOpportunityDigest`) qui pointe vers la fiche. Aucune PME active n'est jamais exclue du signal.
+  - **Manifestation d'intérêt** : un bouton « Je suis intéressé » sur chaque fiche opportunité côté PME. Un clic (idempotent — un signal par PME × opportunité) crée un `opportunity_interest` et déclenche l'envoi à tous les `admin_comilog` d'un mail « telle PME souhaite être recontactée sur COM-YYYY-NNNN ». Ce n'est pas une candidature : la vraie candidature reste hors plateforme sur les coordonnées de l'opportunité.
 - Champ téléphone international via `intl-tel-input` (Gabon par défaut, format E.164 en base).
 - Dashboard KPI admin.
 - Responsive complet (drawer mobile pour nav publique et sidebar portail, typographie fluide, back-to-top).
 
 **Non-fonctionnalités volontaires du MVP.**
-- Pas de candidature en ligne (les PME candidatent hors plateforme sur les coordonnées de l'opportunité).
+- Pas de candidature en ligne au sens dossier + pièces jointes. Les PME peuvent manifester leur intérêt en un clic (cf. capabilities ci-dessus), mais la candidature formelle reste hors plateforme sur les coordonnées de l'opportunité.
 - Pas de forum ni de messagerie interne PME↔PME ou PME↔admin (prévu V1.1 selon cadrage).
 - Pas de multi-langue.
 - Pas d'API publique.

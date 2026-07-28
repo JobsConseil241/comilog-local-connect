@@ -43,6 +43,7 @@ Route::middleware(['auth', 'role:pme'])->prefix('pme')->name('pme.')->group(func
     Route::get('/dashboard', PmeDashboardController::class)->name('dashboard');
     Route::get('/opportunites', [PmeOpportunityController::class, 'index'])->name('opportunities.index');
     Route::get('/opportunites/{opportunity}', [PmeOpportunityController::class, 'show'])->name('opportunities.show');
+    Route::post('/opportunites/{opportunity}/interested', [PmeOpportunityController::class, 'expressInterest'])->name('opportunities.interested');
     Route::get('/formations', [PmeTrainingController::class, 'index'])->name('trainings.index');
     Route::get('/actualites', [PmeNewsController::class, 'index'])->name('news.index');
     Route::get('/actualites/{news:slug}', [PmeNewsController::class, 'show'])->name('news.show');
