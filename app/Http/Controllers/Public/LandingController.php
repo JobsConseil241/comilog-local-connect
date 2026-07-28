@@ -26,7 +26,10 @@ class LandingController extends Controller
                 ->limit(3)
                 ->get(),
             'latestNews' => News::published()->latest('published_at')->limit(2)->get(),
-            'categories' => BusinessCategory::where('is_active', true)->orderBy('name')->get(),
+            'categories' => BusinessCategory::where('is_active', true)
+                ->withCount(['pmes as pmes_count' => fn ($q) => $q->where('pmes.status', Pme::STATUS_ACTIVE)])
+                ->orderBy('name')
+                ->get(),
         ]);
     }
 }

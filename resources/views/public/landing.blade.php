@@ -169,30 +169,36 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-end justify-between mb-12 flex-wrap gap-4">
             <div>
-                <span class="eyebrow">Communauté</span>
-                <h2 class="mt-3 font-display font-bold tracking-tighter2 text-[clamp(1.875rem,4.5vw,3rem)] text-navy">PME à l'honneur</h2>
-                <p class="mt-3 text-stone-600 text-lg max-w-xl">Quelques-unes des PME locales qui font vivre l'écosystème.</p>
+                <span class="eyebrow">Cartographie</span>
+                <h2 class="mt-3 font-display font-bold tracking-tighter2 text-[clamp(1.875rem,4.5vw,3rem)] text-navy">Un écosystème par métier</h2>
+                <p class="mt-3 text-stone-600 text-lg max-w-2xl">Chaque secteur est monitoré par le service Achats Local Content COMILOG. Une PME peut couvrir plusieurs métiers ; une opportunité peut cibler plusieurs métiers en même temps.</p>
             </div>
             <a href="{{ route('inscription.create') }}" class="btn-secondary">
-                Faire partie du réseau
+                Rejoindre le réseau
                 <x-icon name="arrow-right" :size="16" />
             </a>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             @forelse($categories->take(6) as $cat)
-                <article class="card group">
-                    <div class="flex items-start justify-between">
-                        <div class="w-12 h-12 rounded-xl flex items-center justify-center font-display font-bold text-lg" style="background: {{ $cat->color }}1A; color: {{ $cat->color }};">
-                            {{ collect(explode(' ', $cat->name))->take(2)->map(fn($w) => mb_substr($w, 0, 1))->implode('') }}
+                <article class="card">
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center font-display font-bold text-lg shrink-0 tracking-tightish" style="background: {{ $cat->color }}1A; color: {{ $cat->color }};">
+                            {{ mb_strtoupper(collect(explode(' ', $cat->name))->filter(fn($w) => mb_strlen($w) > 1)->take(2)->map(fn($w) => mb_substr($w, 0, 1))->implode('')) }}
                         </div>
                         <span class="badge" style="background: {{ $cat->color }}1A; color: {{ $cat->color }};">{{ $cat->name }}</span>
                     </div>
-                    <h3 class="mt-5 font-display font-semibold text-navy">PME du secteur {{ Str::lower($cat->name) }}</h3>
-                    <p class="mt-1 text-sm text-stone-600">Toutes les PME de cette catégorie reçoivent automatiquement les opportunités correspondantes.</p>
-                    <div class="mt-4 flex items-center justify-between text-xs text-stone-500">
-                        <span class="flex items-center gap-1.5"><x-icon name="users" :size="14" /> Réseau actif</span>
-                        <span class="text-bronze-700 font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Voir →</span>
+                    <h3 class="mt-5 font-display font-semibold text-navy">{{ $cat->name }}</h3>
+                    <p class="mt-1 text-sm text-stone-600">Toute opportunité publiée sur ce secteur est adressée aux PME inscrites, en temps réel.</p>
+                    <div class="mt-4 pt-4 border-t border-stone-100 flex items-center gap-1.5 text-xs">
+                        <x-icon name="users" :size="14" class="text-stone-400" />
+                        @if($cat->pmes_count === 0)
+                            <span class="text-bronze-700 font-semibold">En cartographie</span>
+                        @elseif($cat->pmes_count === 1)
+                            <span class="text-stone-600"><strong class="font-display font-semibold text-stone-800 tabular-nums">1</strong> PME inscrite</span>
+                        @else
+                            <span class="text-stone-600"><strong class="font-display font-semibold text-stone-800 tabular-nums">{{ $cat->pmes_count }}</strong> PME inscrites</span>
+                        @endif
                     </div>
                 </article>
             @empty
