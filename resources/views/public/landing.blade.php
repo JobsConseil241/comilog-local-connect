@@ -133,12 +133,12 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             @php
                 $features = [
-                    ['icon' => 'building',     'color' => 'navy',    'title' => 'Annuaire PME',           'desc' => 'Découvrez les entreprises locales par secteur, services et localisation.'],
-                    ['icon' => 'briefcase',    'color' => 'bronze',  'title' => "Opportunités d'affaires", 'desc' => "Appels d'offres, consultations, demandes de devis ciblés par votre métier."],
-                    ['icon' => 'graduation',   'color' => 'forest',  'title' => 'Centre de formation',     'desc' => 'HSE, IRMA, qualification fournisseur et accompagnement business management.'],
-                    ['icon' => 'message-square','color' => 'navy',   'title' => 'Forums communautaires',   'desc' => 'Échangez, posez vos questions, partagez vos retours d\'expérience.'],
-                    ['icon' => 'calendar',     'color' => 'bronze',  'title' => 'Événements networking',   'desc' => 'Rencontres physiques et virtuelles avec les acheteurs COMILOG.'],
-                    ['icon' => 'mail',         'color' => 'forest',  'title' => 'Messagerie sécurisée',   'desc' => 'Communication directe entre PME et référents de la plateforme.'],
+                    ['icon' => 'briefcase',  'color' => 'bronze', 'title' => 'Opportunités ciblées par métier', 'desc' => "Appels d'offres, consultations et demandes de devis du service Achats COMILOG, filtrés automatiquement sur vos secteurs. Zéro bruit."],
+                    ['icon' => 'bell',       'color' => 'navy',   'title' => 'Alerte email en temps réel',       'desc' => "Une nouvelle opportunité qui vous concerne arrive dans votre boîte dès sa publication. Rien à surveiller, rien à rafraîchir."],
+                    ['icon' => 'graduation', 'color' => 'forest', 'title' => 'Formations HSE &amp; IRMA',        'desc' => "HSE Niveau 1 obligatoire pour intervenir sur site, atelier IRMA pour la chaîne d'approvisionnement, qualification fournisseur COMILOG."],
+                    ['icon' => 'newspaper',  'color' => 'navy',   'title' => 'Actualités SMI COMILOG',           'desc' => "Les évolutions du Système de Management Intégré (ISO 9001 / 14001 / 45001) qui impactent directement les sous-traitants."],
+                    ['icon' => 'shield',     'color' => 'bronze', 'title' => 'Validation humaine 48 h',          'desc' => "Chaque inscription est examinée sous 48 heures ouvrées par un chargé Local Content COMILOG. Une communauté triée, pas ouverte à tous."],
+                    ['icon' => 'tag',        'color' => 'forest', 'title' => 'Cartographie 8 métiers',           'desc' => "BTP, Logistique, IT, Maintenance, Sécurité, Restauration, Nettoyage, Fournitures. Une PME peut couvrir plusieurs secteurs à la fois."],
                 ];
             @endphp
 
