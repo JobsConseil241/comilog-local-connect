@@ -10,9 +10,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('head')
 </head>
-<body class="min-h-full antialiased text-stone-700">
+<body class="min-h-full antialiased text-stone-700" x-data="{ mobileOpen: false }" @keydown.escape.window="mobileOpen = false">
 
-<header class="nav-glass" x-data="{ mobileOpen: false }" @keydown.escape.window="mobileOpen = false">
+<header class="nav-glass">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
         <a href="{{ route('home') }}" class="flex items-center" aria-label="Accueil COMILOG Local Connect">
             <x-application-logo />
@@ -51,59 +51,59 @@
             </button>
         </div>
     </div>
-
-    {{-- Mobile drawer --}}
-    <div x-show="mobileOpen"
-         x-transition.opacity
-         @click="mobileOpen = false"
-         class="fixed inset-0 z-[60] bg-navy-900/60 backdrop-blur-sm md:hidden"
-         style="display: none;"
-         aria-hidden="true"></div>
-
-    <aside x-show="mobileOpen"
-           x-transition:enter="transition ease-expo-out duration-300"
-           x-transition:enter-start="translate-x-full"
-           x-transition:enter-end="translate-x-0"
-           x-transition:leave="transition ease-in duration-200"
-           x-transition:leave-start="translate-x-0"
-           x-transition:leave-end="translate-x-full"
-           class="fixed top-0 right-0 bottom-0 z-[70] w-[85vw] max-w-sm bg-stone-50 shadow-floating md:hidden flex flex-col"
-           style="display: none;"
-           role="dialog"
-           aria-modal="true"
-           aria-label="Menu de navigation">
-        <div class="h-[72px] px-5 flex items-center justify-between border-b border-stone-200 bg-white">
-            <x-application-logo />
-            <button type="button" @click="mobileOpen = false" class="inline-flex items-center justify-center w-10 h-10 rounded-lg text-stone-600 hover:bg-stone-100 transition-colors" aria-label="Fermer le menu">
-                <x-icon name="x" :size="22" />
-            </button>
-        </div>
-
-        <nav class="flex-1 overflow-y-auto px-4 py-6 space-y-1" aria-label="Navigation mobile">
-            <a href="{{ route('home') }}#about" @click="mobileOpen = false" class="flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium text-navy hover:bg-navy/5 transition-colors">
-                <x-icon name="building" :size="18" class="text-stone-400" /> À propos
-            </a>
-            <a href="{{ route('home') }}#features" @click="mobileOpen = false" class="flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium text-navy hover:bg-navy/5 transition-colors">
-                <x-icon name="layout-grid" :size="18" class="text-stone-400" /> Plateforme
-            </a>
-            <a href="{{ route('home') }}#sme-showcase" @click="mobileOpen = false" class="flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium text-navy hover:bg-navy/5 transition-colors">
-                <x-icon name="users" :size="18" class="text-stone-400" /> PME
-            </a>
-            <a href="{{ route('home') }}#resources" @click="mobileOpen = false" class="flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium text-navy hover:bg-navy/5 transition-colors">
-                <x-icon name="graduation" :size="18" class="text-stone-400" /> Ressources
-            </a>
-        </nav>
-
-        <div class="p-4 border-t border-stone-200 space-y-2">
-            @auth
-                <a href="{{ route('dashboard') }}" class="btn-primary w-full">Mon espace <x-icon name="arrow-right" :size="16" /></a>
-            @else
-                <a href="{{ route('inscription.create') }}" class="btn-primary w-full">Rejoindre <x-icon name="arrow-right" :size="16" /></a>
-                <a href="{{ route('login') }}" class="btn-secondary w-full">Connexion</a>
-            @endauth
-        </div>
-    </aside>
 </header>
+
+{{-- Mobile drawer — sibling of <header> to escape the header's backdrop-filter containing block --}}
+<div x-show="mobileOpen"
+     x-transition.opacity
+     @click="mobileOpen = false"
+     class="fixed inset-0 z-[60] bg-navy-900/60 backdrop-blur-sm md:hidden"
+     style="display: none;"
+     aria-hidden="true"></div>
+
+<aside x-show="mobileOpen"
+       x-transition:enter="transition ease-expo-out duration-300"
+       x-transition:enter-start="translate-x-full"
+       x-transition:enter-end="translate-x-0"
+       x-transition:leave="transition ease-in duration-200"
+       x-transition:leave-start="translate-x-0"
+       x-transition:leave-end="translate-x-full"
+       class="fixed top-0 right-0 bottom-0 z-[70] w-[85vw] max-w-sm bg-stone-50 shadow-floating md:hidden flex flex-col"
+       style="display: none;"
+       role="dialog"
+       aria-modal="true"
+       aria-label="Menu de navigation">
+    <div class="h-[72px] px-5 flex items-center justify-between border-b border-stone-200 bg-white shrink-0">
+        <x-application-logo />
+        <button type="button" @click="mobileOpen = false" class="inline-flex items-center justify-center w-10 h-10 rounded-lg text-stone-600 hover:bg-stone-100 transition-colors" aria-label="Fermer le menu">
+            <x-icon name="x" :size="22" />
+        </button>
+    </div>
+
+    <nav class="flex-1 overflow-y-auto px-4 py-6 space-y-1" aria-label="Navigation mobile">
+        <a href="{{ route('home') }}#about" @click="mobileOpen = false" class="flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium text-navy hover:bg-navy/5 transition-colors">
+            <x-icon name="building" :size="18" class="text-stone-400" /> À propos
+        </a>
+        <a href="{{ route('home') }}#features" @click="mobileOpen = false" class="flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium text-navy hover:bg-navy/5 transition-colors">
+            <x-icon name="layout-grid" :size="18" class="text-stone-400" /> Plateforme
+        </a>
+        <a href="{{ route('home') }}#sme-showcase" @click="mobileOpen = false" class="flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium text-navy hover:bg-navy/5 transition-colors">
+            <x-icon name="users" :size="18" class="text-stone-400" /> PME
+        </a>
+        <a href="{{ route('home') }}#resources" @click="mobileOpen = false" class="flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium text-navy hover:bg-navy/5 transition-colors">
+            <x-icon name="graduation" :size="18" class="text-stone-400" /> Ressources
+        </a>
+    </nav>
+
+    <div class="p-4 border-t border-stone-200 space-y-2 shrink-0">
+        @auth
+            <a href="{{ route('dashboard') }}" class="btn-primary w-full">Mon espace <x-icon name="arrow-right" :size="16" /></a>
+        @else
+            <a href="{{ route('inscription.create') }}" class="btn-primary w-full">Rejoindre <x-icon name="arrow-right" :size="16" /></a>
+            <a href="{{ route('login') }}" class="btn-secondary w-full">Connexion</a>
+        @endauth
+    </div>
+</aside>
 
 <main>
     @if (session('success'))
