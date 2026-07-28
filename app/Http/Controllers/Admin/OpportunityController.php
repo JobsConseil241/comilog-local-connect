@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\BusinessCategory;
 use App\Models\Opportunity;
+use App\Models\Pme;
+use App\Notifications\NewOpportunityPublished;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 class OpportunityController extends Controller
@@ -47,6 +50,10 @@ class OpportunityController extends Controller
 
         $opportunity->categories()->sync($data['categories']);
 
+        if ($opportunity->status === Opportunity::STATUS_PUBLISHED) {
+            $this->notifyTargetedPmes($opportunity);
+        }
+
         return redirect()->route('admin.opportunities.index')->with('success', 'Opportunité créée avec succès.');
     }
 
@@ -63,6 +70,7 @@ class OpportunityController extends Controller
     {
         $data = $this->validateData($request);
 
+        $previousStatus = $opportunity->status;
         $publishedAt = $opportunity->published_at;
         if ($data['status'] === Opportunity::STATUS_PUBLISHED && ! $publishedAt) {
             $publishedAt = now();
@@ -74,6 +82,10 @@ class OpportunityController extends Controller
         ]);
 
         $opportunity->categories()->sync($data['categories']);
+
+        if ($previousStatus !== Opportunity::STATUS_PUBLISHED && $opportunity->status === Opportunity::STATUS_PUBLISHED) {
+            $this->notifyTargetedPmes($opportunity);
+        }
 
         return redirect()->route('admin.opportunities.index')->with('success', 'Opportunité mise à jour.');
     }
@@ -108,5 +120,34 @@ class OpportunityController extends Controller
         $count = Opportunity::whereYear('created_at', $year)->count() + 1;
 
         return 'COM-' . $year . '-' . str_pad((string) $count, 4, '0', STR_PAD_LEFT);
+    }
+
+    /**
+     * Dispatch a NewOpportunityPublished notification to every user of every
+     * active PME sharing at least one business category with this opportunity.
+     * The notification implements ShouldQueue so mail sending happens in the background.
+     */
+    private function notifyTargetedPmes(Opportunity $opportunity): void
+    {
+        try {
+            $categoryIds = $opportunity->categories()->pluck('business_categories.id')->all();
+            if (empty($categoryIds)) {
+                return;
+            }
+
+            $targetedPmes = Pme::query()
+                ->where('status', Pme::STATUS_ACTIVE)
+                ->whereHas('categories', fn ($q) => $q->whereIn('business_categories.id', $categoryIds))
+                ->with('users')
+                ->get();
+
+            foreach ($targetedPmes as $pme) {
+                foreach ($pme->users as $user) {
+                    $user->notify(new NewOpportunityPublished($opportunity, $pme));
+                }
+            }
+        } catch (\Throwable $e) {
+            Log::warning('NewOpportunityPublished dispatch failed: ' . $e->getMessage());
+        }
     }
 }

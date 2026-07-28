@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\BusinessCategory;
 use App\Models\Pme;
 use App\Models\User;
+use App\Notifications\PmeInscriptionReceived;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 class InscriptionController extends Controller
@@ -41,7 +43,7 @@ class InscriptionController extends Controller
             'categories.required' => 'Veuillez sélectionner au moins un métier.',
         ]);
 
-        DB::transaction(function () use ($data) {
+        $user = DB::transaction(function () use ($data) {
             $pme = Pme::create([
                 'raison_sociale' => $data['raison_sociale'],
                 'rccm' => $data['rccm'] ?? null,
@@ -57,7 +59,7 @@ class InscriptionController extends Controller
 
             $pme->categories()->sync($data['categories']);
 
-            User::create([
+            return User::create([
                 'name' => $data['representant_nom'],
                 'email' => $data['user_email'],
                 'password' => Hash::make($data['user_password']),
@@ -65,6 +67,12 @@ class InscriptionController extends Controller
                 'pme_id' => $pme->id,
             ]);
         });
+
+        try {
+            $user->notify(new PmeInscriptionReceived($user->pme, $user->email));
+        } catch (\Throwable $e) {
+            Log::warning('PmeInscriptionReceived mail failed: ' . $e->getMessage());
+        }
 
         return redirect()->route('inscription.confirmation')->with('success', "Votre demande d'inscription a bien été enregistrée. Elle sera examinée par nos équipes.");
     }

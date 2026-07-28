@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pme;
+use App\Notifications\PmeRejected;
+use App\Notifications\PmeValidated;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\View\View;
 
 class PmeController extends Controller
@@ -49,6 +53,12 @@ class PmeController extends Controller
             'rejection_reason' => null,
         ]);
 
+        try {
+            Notification::send($pme->users, new PmeValidated($pme));
+        } catch (\Throwable $e) {
+            Log::warning('PmeValidated mail failed: ' . $e->getMessage());
+        }
+
         return back()->with('success', "PME « {$pme->raison_sociale} » validée.");
     }
 
@@ -62,6 +72,12 @@ class PmeController extends Controller
             'status' => Pme::STATUS_REJECTED,
             'rejection_reason' => $data['rejection_reason'],
         ]);
+
+        try {
+            Notification::send($pme->users, new PmeRejected($pme, $data['rejection_reason']));
+        } catch (\Throwable $e) {
+            Log::warning('PmeRejected mail failed: ' . $e->getMessage());
+        }
 
         return back()->with('success', "PME « {$pme->raison_sociale} » rejetée.");
     }
