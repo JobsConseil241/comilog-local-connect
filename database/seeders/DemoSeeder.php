@@ -106,7 +106,9 @@ class DemoSeeder extends Seeder
         foreach ($opportunities as $i => $opp) {
             $reference = 'COM-' . now()->year . '-' . str_pad((string) ($i + 1), 4, '0', STR_PAD_LEFT);
 
-            $o = Opportunity::firstOrCreate(
+            // updateOrCreate on demo references so re-seeding refreshes
+            // relative deadlines (real admin-created opps start at COM-YYYY-0006+)
+            $o = Opportunity::updateOrCreate(
                 ['reference' => $reference],
                 [
                     'titre' => $opp['titre'],
@@ -127,7 +129,7 @@ class DemoSeeder extends Seeder
             $o->categories()->sync($catIds);
         }
 
-        Training::firstOrCreate(
+        Training::updateOrCreate(
             ['titre' => 'Hygiène, Sécurité et Environnement (HSE) — Niveau 1'],
             [
                 'description' => 'Formation initiale aux exigences HSE COMILOG pour les sous-traitants. Obligatoire pour intervenir sur site.',
@@ -142,7 +144,7 @@ class DemoSeeder extends Seeder
             ]
         );
 
-        Training::firstOrCreate(
+        Training::updateOrCreate(
             ['titre' => 'Comprendre le standard IRMA pour les PME fournisseurs'],
             [
                 'description' => "Atelier d'acculturation au référentiel IRMA (Initiative for Responsible Mining Assurance) appliqué à la chaîne d'approvisionnement.",

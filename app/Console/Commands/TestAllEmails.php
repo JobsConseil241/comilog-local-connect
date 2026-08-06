@@ -37,11 +37,25 @@ class TestAllEmails extends Command
         $this->line('   Mailer actif : ' . config('mail.default') . ' (from ' . config('mail.from.address') . ')');
         $this->newLine();
 
-        // Sample data
-        $opp = Opportunity::published()->with('categories')->first();
+        // Sample data — try live first, fall back to any opportunity so the
+        // command still renders templates when demo deadlines have expired.
+        $opp = Opportunity::published()->with('categories')->first()
+            ?? Opportunity::query()->with('categories')->latest('created_at')->first();
+
         if (! $opp) {
-            $this->error('Aucune opportunité publiée en base — lance `php artisan db:seed` d\'abord.');
+            $this->error('Aucune opportunité en base — lance `php artisan db:seed` d\'abord.');
             return self::FAILURE;
+        }
+
+        $isLive = $opp->status === Opportunity::STATUS_PUBLISHED
+            && (! $opp->deadline || $opp->deadline->isFuture() || $opp->deadline->isToday());
+
+        if (! $isLive) {
+            $this->warn('   ⚠ L\'opportunité de test n\'est pas "live" (deadline expirée ou statut != published).');
+            $this->warn('     Les templates rendent correctement pour la démo, mais dans le flow réel');
+            $this->warn('     `notifyTargetedPmes` ne dispatche que si l\'opportunité est publiée + deadline valide.');
+            $this->warn('     → `php artisan db:seed` rafraîchira les dates des opportunités démo.');
+            $this->newLine();
         }
 
         $catIds = $opp->categories->pluck('id')->all();
